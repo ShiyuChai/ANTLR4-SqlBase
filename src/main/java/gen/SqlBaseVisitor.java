@@ -1,5 +1,5 @@
-// Generated from D:/Development/AntlrTest/src\SqlBase.g4 by ANTLR 4.5.3
-package com.tencent;
+// Generated from /Users/tony/Code/source_code/ANTLR4-SqlBase/src/main/java/com/tencent/SqlBase.g4 by ANTLR 4.7
+package gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -29,11 +29,23 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSingleTableIdentifier(SqlBaseParser.SingleTableIdentifierContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SqlBaseParser#singleFunctionIdentifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleFunctionIdentifier(SqlBaseParser.SingleFunctionIdentifierContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SqlBaseParser#singleDataType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitSingleDataType(SqlBaseParser.SingleDataTypeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SqlBaseParser#singleTableSchema}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleTableSchema(SqlBaseParser.SingleTableSchemaContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code statementDefault}
 	 * labeled alternative in {@link SqlBaseParser#statement}.
@@ -70,19 +82,19 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDropDatabase(SqlBaseParser.DropDatabaseContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code createTableUsing}
-	 * labeled alternative in {@link SqlBaseParser#statement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCreateTableUsing(SqlBaseParser.CreateTableUsingContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code createTable}
 	 * labeled alternative in {@link SqlBaseParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitCreateTable(SqlBaseParser.CreateTableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code createHiveTable}
+	 * labeled alternative in {@link SqlBaseParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCreateHiveTable(SqlBaseParser.CreateHiveTableContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code createTableLike}
 	 * labeled alternative in {@link SqlBaseParser#statement}.
@@ -97,6 +109,13 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAnalyze(SqlBaseParser.AnalyzeContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code addTableColumns}
+	 * labeled alternative in {@link SqlBaseParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddTableColumns(SqlBaseParser.AddTableColumnsContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code renameTable}
 	 * labeled alternative in {@link SqlBaseParser#statement}.
@@ -118,6 +137,13 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitUnsetTableProperties(SqlBaseParser.UnsetTablePropertiesContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code changeColumn}
+	 * labeled alternative in {@link SqlBaseParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitChangeColumn(SqlBaseParser.ChangeColumnContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code setTableSerDe}
 	 * labeled alternative in {@link SqlBaseParser#statement}.
@@ -216,6 +242,13 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitShowTables(SqlBaseParser.ShowTablesContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code showTable}
+	 * labeled alternative in {@link SqlBaseParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitShowTable(SqlBaseParser.ShowTableContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code showDatabases}
 	 * labeled alternative in {@link SqlBaseParser#statement}.
@@ -400,11 +433,33 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitQuery(SqlBaseParser.QueryContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link SqlBaseParser#insertInto}.
+	 * Visit a parse tree produced by the {@code insertOverwriteTable}
+	 * labeled alternative in {@link SqlBaseParser#insertInto}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInsertInto(SqlBaseParser.InsertIntoContext ctx);
+	T visitInsertOverwriteTable(SqlBaseParser.InsertOverwriteTableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code insertIntoTable}
+	 * labeled alternative in {@link SqlBaseParser#insertInto}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInsertIntoTable(SqlBaseParser.InsertIntoTableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code insertOverwriteHiveDir}
+	 * labeled alternative in {@link SqlBaseParser#insertInto}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInsertOverwriteHiveDir(SqlBaseParser.InsertOverwriteHiveDirContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code insertOverwriteDir}
+	 * labeled alternative in {@link SqlBaseParser#insertInto}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInsertOverwriteDir(SqlBaseParser.InsertOverwriteDirContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SqlBaseParser#partitionSpecLocation}.
 	 * @param ctx the parse tree
@@ -602,6 +657,18 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitQuerySpecification(SqlBaseParser.QuerySpecificationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SqlBaseParser#hint}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHint(SqlBaseParser.HintContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SqlBaseParser#hintStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHintStatement(SqlBaseParser.HintStatementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SqlBaseParser#fromClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -661,6 +728,34 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSample(SqlBaseParser.SampleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code sampleByPercentile}
+	 * labeled alternative in {@link SqlBaseParser#sampleMethod}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSampleByPercentile(SqlBaseParser.SampleByPercentileContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code sampleByRows}
+	 * labeled alternative in {@link SqlBaseParser#sampleMethod}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSampleByRows(SqlBaseParser.SampleByRowsContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code sampleByBucket}
+	 * labeled alternative in {@link SqlBaseParser#sampleMethod}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSampleByBucket(SqlBaseParser.SampleByBucketContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code sampleByBytes}
+	 * labeled alternative in {@link SqlBaseParser#sampleMethod}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSampleByBytes(SqlBaseParser.SampleByBytesContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SqlBaseParser#identifierList}.
 	 * @param ctx the parse tree
@@ -739,6 +834,18 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInlineTable(SqlBaseParser.InlineTableContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SqlBaseParser#functionTable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionTable(SqlBaseParser.FunctionTableContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SqlBaseParser#tableAlias}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTableAlias(SqlBaseParser.TableAliasContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code rowFormatSerde}
 	 * labeled alternative in {@link SqlBaseParser#rowFormat}.
 	 * @param ctx the parse tree
@@ -758,6 +865,12 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTableIdentifier(SqlBaseParser.TableIdentifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SqlBaseParser#functionIdentifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionIdentifier(SqlBaseParser.FunctionIdentifierContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link SqlBaseParser#namedExpression}.
 	 * @param ctx the parse tree
@@ -845,6 +958,13 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitArithmeticUnary(SqlBaseParser.ArithmeticUnaryContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code struct}
+	 * labeled alternative in {@link SqlBaseParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStruct(SqlBaseParser.StructContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code dereference}
 	 * labeled alternative in {@link SqlBaseParser#primaryExpression}.
 	 * @param ctx the parse tree
@@ -873,6 +993,13 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRowConstructor(SqlBaseParser.RowConstructorContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code last}
+	 * labeled alternative in {@link SqlBaseParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLast(SqlBaseParser.LastContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code star}
 	 * labeled alternative in {@link SqlBaseParser#primaryExpression}.
 	 * @param ctx the parse tree
@@ -886,13 +1013,6 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSubscript(SqlBaseParser.SubscriptContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code timeFunctionCall}
-	 * labeled alternative in {@link SqlBaseParser#primaryExpression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTimeFunctionCall(SqlBaseParser.TimeFunctionCallContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code subqueryExpression}
 	 * labeled alternative in {@link SqlBaseParser#primaryExpression}.
@@ -935,6 +1055,20 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSearchedCase(SqlBaseParser.SearchedCaseContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code position}
+	 * labeled alternative in {@link SqlBaseParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPosition(SqlBaseParser.PositionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code first}
+	 * labeled alternative in {@link SqlBaseParser#primaryExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFirst(SqlBaseParser.FirstContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code nullLiteral}
 	 * labeled alternative in {@link SqlBaseParser#constant}.
@@ -1019,6 +1153,12 @@ public interface SqlBaseVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIntervalValue(SqlBaseParser.IntervalValueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link SqlBaseParser#colPosition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColPosition(SqlBaseParser.ColPositionContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code complexDataType}
 	 * labeled alternative in {@link SqlBaseParser#dataType}.

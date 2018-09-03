@@ -1,6 +1,9 @@
 package com.tencent;
 
-public class MyVisitor extends SqlBaseBaseVisitor<String>{
+import gen.SqlBaseBaseVisitor;
+import gen.SqlBaseParser;
+
+public class MyVisitor extends SqlBaseBaseVisitor<String> {
 
     public String visitSingleStatement(SqlBaseParser.SingleStatementContext ctx) {
         System.out.println("visitSingleStatement");
@@ -44,11 +47,6 @@ public class MyVisitor extends SqlBaseBaseVisitor<String>{
 
     public String visitDropDatabase(SqlBaseParser.DropDatabaseContext ctx) {
         System.out.println("visitDropDatabase");
-        return visitChildren(ctx);
-    }
-
-    public String visitCreateTableUsing(SqlBaseParser.CreateTableUsingContext ctx) {
-        System.out.println("visitCreateTableUsing");
         return visitChildren(ctx);
     }
 
@@ -663,10 +661,6 @@ public class MyVisitor extends SqlBaseBaseVisitor<String>{
         return visitChildren(ctx);
     }
 
-    public String visitTimeFunctionCall(SqlBaseParser.TimeFunctionCallContext ctx) {
-        System.out.println("visitTimeFunctionCall");
-        return visitChildren(ctx);
-    }
 
     public String visitSubqueryExpression(SqlBaseParser.SubqueryExpressionContext ctx) {
         System.out.println("visitSubqueryExpression");
@@ -892,5 +886,125 @@ public class MyVisitor extends SqlBaseBaseVisitor<String>{
     public String visitNonReserved(SqlBaseParser.NonReservedContext ctx) {
         System.out.println("visitNonReserved");
         return visitChildren(ctx);
+    }
+
+    @Override
+    public String visitSingleFunctionIdentifier(SqlBaseParser.SingleFunctionIdentifierContext ctx) {
+        return super.visitSingleFunctionIdentifier(ctx);
+    }
+
+    @Override
+    public String visitSingleTableSchema(SqlBaseParser.SingleTableSchemaContext ctx) {
+        return super.visitSingleTableSchema(ctx);
+    }
+
+    @Override
+    public String visitCreateHiveTable(SqlBaseParser.CreateHiveTableContext ctx) {
+        return super.visitCreateHiveTable(ctx);
+    }
+
+    @Override
+    public String visitAddTableColumns(SqlBaseParser.AddTableColumnsContext ctx) {
+        return super.visitAddTableColumns(ctx);
+    }
+
+    @Override
+    public String visitChangeColumn(SqlBaseParser.ChangeColumnContext ctx) {
+        return super.visitChangeColumn(ctx);
+    }
+
+    @Override
+    public String visitShowTable(SqlBaseParser.ShowTableContext ctx) {
+        return super.visitShowTable(ctx);
+    }
+
+    @Override
+    public String visitInsertOverwriteTable(SqlBaseParser.InsertOverwriteTableContext ctx) {
+        return super.visitInsertOverwriteTable(ctx);
+    }
+
+    @Override
+    public String visitInsertIntoTable(SqlBaseParser.InsertIntoTableContext ctx) {
+        return super.visitInsertIntoTable(ctx);
+    }
+
+    @Override
+    public String visitInsertOverwriteHiveDir(SqlBaseParser.InsertOverwriteHiveDirContext ctx) {
+        return super.visitInsertOverwriteHiveDir(ctx);
+    }
+
+    @Override
+    public String visitInsertOverwriteDir(SqlBaseParser.InsertOverwriteDirContext ctx) {
+        return super.visitInsertOverwriteDir(ctx);
+    }
+
+    @Override
+    public String visitHint(SqlBaseParser.HintContext ctx) {
+        return super.visitHint(ctx);
+    }
+
+    @Override
+    public String visitHintStatement(SqlBaseParser.HintStatementContext ctx) {
+        return super.visitHintStatement(ctx);
+    }
+
+    @Override
+    public String visitSampleByPercentile(SqlBaseParser.SampleByPercentileContext ctx) {
+        return super.visitSampleByPercentile(ctx);
+    }
+
+    @Override
+    public String visitSampleByRows(SqlBaseParser.SampleByRowsContext ctx) {
+        return super.visitSampleByRows(ctx);
+    }
+
+    @Override
+    public String visitSampleByBucket(SqlBaseParser.SampleByBucketContext ctx) {
+        return super.visitSampleByBucket(ctx);
+    }
+
+    @Override
+    public String visitSampleByBytes(SqlBaseParser.SampleByBytesContext ctx) {
+        return super.visitSampleByBytes(ctx);
+    }
+
+    @Override
+    public String visitFunctionTable(SqlBaseParser.FunctionTableContext ctx) {
+        return super.visitFunctionTable(ctx);
+    }
+
+    @Override
+    public String visitTableAlias(SqlBaseParser.TableAliasContext ctx) {
+        return super.visitTableAlias(ctx);
+    }
+
+    @Override
+    public String visitFunctionIdentifier(SqlBaseParser.FunctionIdentifierContext ctx) {
+        return super.visitFunctionIdentifier(ctx);
+    }
+
+    @Override
+    public String visitStruct(SqlBaseParser.StructContext ctx) {
+        return super.visitStruct(ctx);
+    }
+
+    @Override
+    public String visitLast(SqlBaseParser.LastContext ctx) {
+        return super.visitLast(ctx);
+    }
+
+    @Override
+    public String visitPosition(SqlBaseParser.PositionContext ctx) {
+        return super.visitPosition(ctx);
+    }
+
+    @Override
+    public String visitFirst(SqlBaseParser.FirstContext ctx) {
+        return super.visitFirst(ctx);
+    }
+
+    @Override
+    public String visitColPosition(SqlBaseParser.ColPositionContext ctx) {
+        return super.visitColPosition(ctx);
     }
 }
